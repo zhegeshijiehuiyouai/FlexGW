@@ -17,12 +17,12 @@ Flex GateWay
 
 Strongswan
 
-* 版本：5.1.3
+* 版本：5.7.2
 * Website：http://www.strongswan.org
 
 OpenVPN
 
-* 版本：2.3.2
+* 版本：2.4.12
 * Website：https://openvpn.net/index.php/open-source.html
 
 程序说明
