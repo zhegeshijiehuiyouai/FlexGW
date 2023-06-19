@@ -24,9 +24,12 @@
           <span class="secondary label">Offline</span>
           {% endif %}
         </li>
-        <li>本端子网：{{ tunnel.rules.leftsubnet }}</li>
-        <li>对端EIP：{{ tunnel.rules.right }}</li>
-        <li>对端子网：{{ tunnel.rules.rightsubnet }}</li>
+{#        <li>本端子网：{{ tunnel.rules.leftsubnet }}</li>#}
+        <li>本端子网：{% set subnets = tunnel.rules.leftsubnet.split (',') %}
+              {% for subnet in subnets %}{{ subnet }}<br>{% endfor %}</li>
+        <li>对端公网IP：{{ tunnel.rules.right }}</li>
+        <li>对端子网：{% set subnets = tunnel.rules.rightsubnet.split (',') %}
+              {% for subnet in subnets %}{{ subnet }}<br>{% endfor %}</li>
       </ul>
     </div>
     <!-- end of side nav -->

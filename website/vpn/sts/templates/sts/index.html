@@ -43,9 +43,15 @@
             <td><a href="{{ url_for('sts.settings', id=tunnel.id) }}">{{ tunnel.name }}</a></td>
             <td>{{ tunnel.rules.keyexchange }}</td>
             <td>{% if tunnel.rules.auto == 'add' %}手动{% else %}自动{% endif %}</td>
-            <td>{{ tunnel.rules.leftsubnet }}</td>
+            <td>
+              {% set subnets = tunnel.rules.leftsubnet.split (',') %}
+              {% for subnet in subnets %}{{ subnet }}<br>{% endfor %}
+            </td>
             <td>{{ tunnel.rules.right }}</td>
-            <td>{{ tunnel.rules.rightsubnet }}</td>
+            <td>
+              {% set subnets = tunnel.rules.rightsubnet.split (',') %}
+              {% for subnet in subnets %}{{ subnet }}<br>{% endfor %}
+            </td>
             <td>
               {% if tunnel.status %}
                 <span class="success label">Online</span>
