@@ -91,7 +91,7 @@ class AddForm(Form):
                                                    ('sha2_512', u'SHA2-512'), ('aesxcbc', u'AES-XCBC'),
                                                    ('aescmac', u'AES-CMAC')])
 
-    ike_dh_algorithm = SelectField(u'IKE DH算法',
+    ike_dh_algorithm = SelectField(u'IKE DH分组',
                                    choices=[('modp768', u'Group 1 modp768'), ('modp1024', u'Group 2 modp1024'),
                                             ('modp1536', u'Group 5 modp1536'), ('modp2048', u'Group 14 modp2048'),
                                             ('modp3072', u'Group 15 modp3072'), ('modp4096', u'Group 16 modp4096'),
@@ -117,7 +117,7 @@ class AddForm(Form):
                                                    ('sha2_256', u'SHA2-256'), ('sha2_384', u'SHA2-384'),
                                                    ('sha2_512', u'SHA2-512'), ('aesxcbc', u'AES-XCBC')])
 
-    esp_dh_algorithm = SelectField(u'ESP DH算法',
+    esp_dh_algorithm = SelectField(u'ESP DH分组',
                                    choices=[('null', u'无'),
                                             ('modp768', u'Group 1 modp768'), ('modp1024', u'Group 2 modp1024'),
                                             ('modp1536', u'Group 5 modp1536'), ('modp2048', u'Group 14 modp2048'),

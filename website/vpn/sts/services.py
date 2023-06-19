@@ -259,10 +259,12 @@ def vpn_settings(form, tunnel_id=None):
         esp = '%s-%s-%s' % (form.esp_encryption_algorithm.data, form.esp_integrity_algorithm.data, form.esp_dh_algorithm.data)
     ike = '%s-%s-%s' % (form.ike_encryption_algorithm.data, form.ike_integrity_algorithm.data, form.ike_dh_algorithm.data)
     rules = {'left': '0.0.0.0', 'leftsubnet': local_subnet,
-             'leftid': form.tunnel_name.data, 'right': form.remote_ip.data,
-             'rightsubnet': remote_subnet, 'rightid': form.tunnel_name.data,
+             'leftid': form.local_id.data, 'right': form.remote_ip.data,
+             'rightsubnet': remote_subnet, 'rightid': form.remote_id.data,
              'authby': 'secret', 'esp': esp,
-             'ike': ike, 'auto': form.start_type.data}
+             'ike': ike, 'auto': form.start_type.data,
+             'aggressive': form.negotiation_mode.data, 'dpdaction': form.dpd_action.data,
+             'keyexchange': form.key_exchange.data}
     if tunnel.update_tunnel(tunnel_id, form.tunnel_name.data, json.dumps(rules),
                             form.psk.data) and vpn.reload:
         return True

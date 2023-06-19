@@ -38,10 +38,41 @@
         </div>
         <div class="row">
           <div class="large-3 columns">
+            {{ form.key_exchange.label(class="right inline") }}
+          </div>
+          <div class="large-5 columns">
+            {{ form.key_exchange }}
+          </div>
+          <div class="large-4 columns end">
+            <label class="inline">请与对端保持一致</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="large-3 columns">
             {{ form.start_type.label(class="right inline") }}
           </div>
           <div class="large-5 columns end">
             {{ form.start_type }}
+          </div>
+        </div>
+        <div class="row">
+          <div class="large-3 columns">
+            {{ form.negotiation_mode.label(class="right inline") }}
+          </div>
+          <div class="large-5 columns">
+            {{ form.negotiation_mode }}
+          </div>
+          <div class="large-4 columns end">
+          </div>
+        </div>
+        <div class="row">
+          <div class="large-3 columns">
+            {{ form.dpd_action.label(class="right inline") }}
+          </div>
+          <div class="large-5 columns">
+            {{ form.dpd_action }}
+          </div>
+          <div class="large-4 columns end">
           </div>
         </div>
         <div class="row">
@@ -51,6 +82,9 @@
           <div class="large-5 columns end">
             {{ form.ike_encryption_algorithm }}
           </div>
+          <div class="large-4 columns end">
+              <label class="inline">请与对端保持一致</label>
+          </div>
         </div>
         <div class="row">
           <div class="large-3 columns">
@@ -58,6 +92,9 @@
           </div>
           <div class="large-5 columns end">
             {{ form.ike_integrity_algorithm }}
+          </div>
+          <div class="large-4 columns end">
+              <label class="inline">请与对端保持一致</label>
           </div>
         </div>
         <div class="row">
@@ -67,6 +104,9 @@
           <div class="large-5 columns end">
             {{ form.ike_dh_algorithm }}
           </div>
+          <div class="large-4 columns end">
+              <label class="inline">请与对端保持一致</label>
+          </div>
         </div>
         <div class="row">
           <div class="large-3 columns">
@@ -74,6 +114,9 @@
           </div>
           <div class="large-5 columns end">
             {{ form.esp_encryption_algorithm }}
+          </div>
+          <div class="large-4 columns end">
+              <label class="inline">请与对端保持一致</label>
           </div>
         </div>
         <div class="row">
@@ -83,6 +126,9 @@
           <div class="large-5 columns end">
             {{ form.esp_integrity_algorithm }}
           </div>
+          <div class="large-4 columns end">
+              <label class="inline">请与对端保持一致</label>
+          </div>
         </div>
         <div class="row">
           <div class="large-3 columns">
@@ -90,6 +136,25 @@
           </div>
           <div class="large-5 columns end">
             {{ form.esp_dh_algorithm }}
+          </div>
+          <div class="large-4 columns end">
+              <label class="inline">请与对端保持一致</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="large-3 columns">
+            {{ form.local_id.label(class="right inline") }}
+          </div>
+          <div class="large-5 columns">
+            {% if form.local_id.errors %}
+            {{ form.local_id(class="error") }}
+            <small class="error">{{ form.local_id.errors[0] }}</small>
+            {% else %}
+            {{ form.local_id }}
+            {% endif %}
+          </div>
+          <div class="large-4 columns end">
+              <label class="inline">请与对端的「对端ID」保持一致</label>
           </div>
         </div>
         <div class="row">
@@ -103,6 +168,22 @@
             {% else %}
             {{ form.local_subnet }}
             {% endif %}
+          </div>
+        </div>
+        <div class="row">
+          <div class="large-3 columns">
+            {{ form.remote_id.label(class="right inline") }}
+          </div>
+          <div class="large-5 columns">
+            {% if form.remote_id.errors %}
+            {{ form.remote_id(class="error") }}
+            <small class="error">{{ form.remote_id.errors[0] }}</small>
+            {% else %}
+            {{ form.remote_id }}
+            {% endif %}
+          </div>
+          <div class="large-4 columns end">
+            <label class="inline">请与对端的「本端ID」保持一致</label>
           </div>
         </div>
         <div class="row">
