@@ -4,7 +4,8 @@ Flex GateWay Deploy
 环境要求
 -------
 
-OS: Centos 6.5/RHEL 6/AliOS 6.2
+~~OS: Centos 6.5/RHEL 6/AliOS 6.2~~  
+测试系统：CentOS 7.7
 
 注：请以root 身份执行下面步骤的命令。
 
@@ -12,26 +13,18 @@ OS: Centos 6.5/RHEL 6/AliOS 6.2
 ----------
 
 编辑/etc/sysctl.conf 文件：
-
-1. Disable redirects.
-
-    `sysctl -a | egrep "ipv4.*(accept|send)_redirects" | awk -F "=" '{print $1"= 0"}'`
-
+1. Disable redirects.  
+    `sysctl -a | egrep "ipv4.*(accept|send)_redirects" | awk -F "=" '{print $1"= 0"}'`  
     请编辑sysctl.conf 文件，将上面配置的值均设为0。配置文件里没有的，请添加上。
-
-2. enable ip forward.
-
-    net.ipv4.ip_forward = 1
-
+2. enable ip forward.  
+    net.ipv4.ip_forward = 1  
     请编辑sysctl.conf 文件，将该配置的值设置为1。
-
 3.  执行命令`sysctl -p`
 
 安装依赖的软件包
 --------------
 
 以root 身份执行：
-
 1. yum install strongswan openvpn zip curl wget
 
 安装flexgw rpm 包
@@ -50,22 +43,18 @@ OS: Centos 6.5/RHEL 6/AliOS 6.2
 
 初始化配置
 ---------
-1. 初始化strongswan 配置文件：
-
+1. 初始化strongswan 配置文件：  
     cp -fv /usr/local/flexgw/rc/strongswan.conf /etc/strongswan/strongswan.conf
-
-2. 初始化openvpn 配置文件：
-
+2. 初始化openvpn 配置文件：  
     cp -fv /usr/local/flexgw/rc/openvpn.conf /etc/openvpn/server.conf
 
 设置strongswan
 --------------
 
-1. 将/etc/strongswan/strongswan.d/charon/dhcp.conf 配置文件：
+1. 将/etc/strongswan/strongswan.d/charon/dhcp.conf 配置文件：  
    注释掉“load = yes” 这行。
    
-2. 清空密钥配置文件：
-
+2. 清空密钥配置文件：  
    \> /etc/strongswan/ipsec.secrets
 
 
@@ -73,9 +62,7 @@ OS: Centos 6.5/RHEL 6/AliOS 6.2
 -----------------
 
 1. strongswan start
-
 2. strongswan status
-
 3. strongswan stop
 
 设置flexgw

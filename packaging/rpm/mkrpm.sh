@@ -1,10 +1,9 @@
 #!/bin/bash
 
 
-#flexgw_refs="v1.0.0"
-flexgw_refs="origin/develop"
+flexgw_refs="origin/master"
 package_name="flexgw"
-flexgw_version="1.0.0"
+flexgw_version="1.2.0"
 flexgw_release="1"
 python_version="2.7.9"
 python_dir="/usr/local/flexgw/python"
@@ -24,7 +23,7 @@ mkdir -p /tmp/rpmbuild/PYTHON/sources
 [ -d /tmp/rpmbuild/SOURCES/flexgw ] && rm -rf /tmp/rpmbuild/SOURCES/flexgw
 
 #clone repositories
-git clone https://github.com/alibaba/FlexGW.git /tmp/rpmbuild/SOURCES/flexgw
+git clone https://github.com/zhegeshijiehuiyouai/FlexGW.git /tmp/rpmbuild/SOURCES/flexgw
 
 #archive source from git repositories
 cd /tmp/rpmbuild/SOURCES/flexgw

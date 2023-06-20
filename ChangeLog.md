@@ -1,6 +1,16 @@
 ChangeLog
 =========
 
+Version 1.2.0
+-------------
+
+适配CentOS7
+
+* 升级StrongSwan 版本
+* 升级OpenVPN 版本
+* StrongSwan 可配置项增加
+* StrongSwan 超长子网显示优化
+
 Version 1.1.1
 -------------
 
