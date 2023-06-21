@@ -30,7 +30,7 @@ flexgw_build/
 安装
 ----------
 
-1. 将上面构建好的包拷贝到`flexgw_build` 目录下，或者使用我构建好的rpm包。
+1. 将上面构建好的包拷贝到`flexgw_build` 目录下，或者使用我构建好的[rpm包](https://github.com/zhegeshijiehuiyouai/FlexGW/releases/download/1.2.0/flexgw-1.2.0-1.el7.x86_64.rpm)。
 2. 拷贝 `FlexGW-master/packaging/rpm/install.sh` 到 `flexgw_build` 目录下，执行。
 
 
