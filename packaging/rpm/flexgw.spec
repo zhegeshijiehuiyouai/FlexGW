@@ -5,7 +5,7 @@ Release:   %{release}%{?dist}
 Summary:   a vpn, snat web app for ecs.
 License:   Commercial
 Group:     Applications/Internet
-Source0:   %{name}-%{version}.tar.bz2
+Source0:   %{name}-%{version}.tar.gz
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 AutoReqProv: no
@@ -27,16 +27,21 @@ a vpn, snat web app for ecs vpc vm.
 %build
 # install python
 echo "building python..."
-[ -f %{python_dir} ] && rm -rf %{python_dir}
-export PYTHON_BUILD_BUILD_PATH=/tmp/rpmbuild/PYTHON/sources
-export PYTHON_BUILD_CACHE_PATH=/tmp/rpmbuild/PYTHON/cache
-python-build -k %{python_version} %{python_dir}
+mkdir -p %{python_dir}
+rm -rf %{python_dir}
+cd %{curdir}
+cd ../../../
+tar xf python.tar.xz
+mv python %{python_dir}
+# export PYTHON_BUILD_BUILD_PATH=/tmp/rpmbuild/PYTHON/sources
+# export PYTHON_BUILD_CACHE_PATH=/tmp/rpmbuild/PYTHON/cache
+# python-build -k %{python_version} %{python_dir}
 
 # install pip requirements.txt
-echo "install requirements..."
-export ac_cv_func_malloc_0_nonnull=yes
-%{python_dir}/bin/pip install -r %{_builddir}/%{name}-%{version}/requirements.txt
-unset ac_cv_func_malloc_0_nonnull
+# echo "install requirements..."
+# export ac_cv_func_malloc_0_nonnull=yes
+# %{python_dir}/bin/pip install -r %{_builddir}/%{name}-%{version}/requirements.txt
+# unset ac_cv_func_malloc_0_nonnull
 
 %install
 mkdir -p %{buildroot}/etc/init.d/
@@ -85,6 +90,9 @@ rm -rf %{python_dir}
 %config(noreplace) /usr/local/flexgw/instance/*
 
 %changelog
+
+* Wed Jun 21 2023 zhegeshijiehuiyouai <946649765@qq.com> - 1.2.0
+- Release 1.2
 
 * Mon Mar 23 2015 xiong.xiaox <xiong.xiaox@alibaba-inc.com> - 1.1.0
 - Release 1.1

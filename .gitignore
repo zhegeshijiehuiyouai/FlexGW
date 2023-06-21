@@ -6,6 +6,7 @@
 *.log
 *.pid
 logs/*
+!logs/.gitkeep
 instance/*
 !instance/application.cfg
 !instance/website.db
