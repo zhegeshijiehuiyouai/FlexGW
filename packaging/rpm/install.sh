@@ -2,7 +2,7 @@
 
 src_dir=$(pwd)/00src00
 rpm_name=flexgw-1.2.0-1.el7.x86_64.rpm
-flexgw_port=3333
+flexgw_port=2333
 
 # 带格式的echo函数
 function echo_info() {
@@ -181,7 +181,6 @@ elif [ -f ${src_dir}/${openvpn_rpm} ]; then
 fi
 strongswan_rpm=strongswan-5.7.2-1.el7.x86_64.rpm
 strongswan_install_tag=0
-yum install -y strongswan openvpn zip curl wget
 if [ -f ${strongswan_rpm} ];then
     yum install -y ${strongswan_rpm}
     if [ $? -eq 0 ];then
@@ -195,10 +194,10 @@ elif [ -f ${src_dir}/${strongswan_rpm} ]; then
 fi
 # 没有安装rpm包时，从源获取包
 if [ ${openvpn_install_tag} -eq 0 ];then
-    yum install openvpn
+    yum install -y openvpn
 fi
 if [ ${strongswan_install_tag} -eq 0 ];then
-    yum install strongswan
+    yum install -y strongswan
 fi
 yum install -y zip curl wget
 if [ $? -ne 0 ];then
@@ -221,6 +220,9 @@ echo_info 设置strongswan
 sed -i "s|\s*load = yes|#&|g" /etc/strongswan/strongswan.d/charon/dhcp.conf
 echo '# ipsec.secrets - strongSwan IPsec secrets file' > /etc/strongswan/ipsec.secrets
 
+echo_info "初始化，大约耗时10秒中"
+/etc/init.d/initflexgw
+
 echo_info 启动strongswan
 systemctl start strongswan
 systemctl enable strongswan
@@ -230,9 +232,6 @@ strongswan status
 echo_info 启动openvpn
 systemctl start openvpn@server &> /dev/null
 systemctl enable openvpn@server
-
-echo_info "初始化，大约耗时10秒中"
-/etc/init.d/initflexgw
 
 get_machine_ip
 
