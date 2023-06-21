@@ -240,7 +240,7 @@ ln -s /etc/init.d/flexgw /usr/local/bin/flexgw
 
 echo_info flexgw启动成功
 echo -e "\033[37m                  启动命令：\033[0m"
-echo -e "\033[37m                  systemctl start strongswan\033[0m"
+echo -e "\033[37m                  systemctl start strongswan 或 strongswan start\033[0m"
 echo -e "\033[37m                  systemctl start openvpn@server\033[0m"
 echo -e "\033[37m                  flexgw start\033[0m"
 echo -e "\033[37m                  web ui访问地址： http://${machine_ip}:${flexgw_port}/\033[0m"

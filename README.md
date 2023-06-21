@@ -12,6 +12,36 @@ Flex GateWay
 2.  拨号VPN 功能。可让你通过拨号方式，接入VPC 私网，进行日常维护管理。
 3.  SNAT 功能。可方便的设置Source NAT，以让VPC 私网内的VM 通过Gateway VM 访问外网。
 
+构建RPM包
+----------
+
+创建构建目录，将本项目的[zip包](https://github.com/zhegeshijiehuiyouai/FlexGW/archive/refs/heads/master.zip)、[依赖包](https://github.com/zhegeshijiehuiyouai/FlexGW/releases/tag/0.0.1)，都下载到刚刚创建的构建目录，并解压zip包。  
+目录结构如下：
+```shell
+flexgw_build/
+├── FlexGW-master
+├── FlexGW-master.zip
+├── openvpn-2.4.12-1.el7.x86_64.rpm
+├── python.tar.xz
+└── strongswan-5.7.2-1.el7.x86_64.rpm
+```
+进入到 `FlexGW-master/packaging/rpm` 目录，执行 `mkrpm.sh` ，稍后将在 `/tmp/rpmbuild/RPMS/x86_64/` 目录下生成rpm包。
+
+安装
+----------
+
+1. 将上面构建好的包拷贝到`flexgw_build` 目录下，或者使用我构建好的rpm包。
+2. 拷贝 `FlexGW-master/packaging/rpm/install.sh` 到 `flexgw_build` 目录下，执行。
+
+
+卸载
+----------
+
+```shell
+FlexGW-master/packaging/rpm/uninstall.sh
+```
+
+
 软件组成
 ----------
 
