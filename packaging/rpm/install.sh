@@ -228,8 +228,8 @@ sleep 2
 strongswan status
 
 echo_info 启动openvpn
-systemctl start openvpn-server@server &> /dev/null
-systemctl enable openvpn-server@server
+systemctl start openvpn@server &> /dev/null
+systemctl enable openvpn@server
 
 echo_info "初始化，大约耗时10秒中"
 /etc/init.d/initflexgw
@@ -242,7 +242,7 @@ ln -s /etc/init.d/flexgw /usr/local/bin/flexgw
 echo_info flexgw启动成功
 echo -e "\033[37m                  启动命令：\033[0m"
 echo -e "\033[37m                  systemctl start strongswan\033[0m"
-echo -e "\033[37m                  systemctl start openvpn-server@server\033[0m"
+echo -e "\033[37m                  systemctl start openvpn@server\033[0m"
 echo -e "\033[37m                  flexgw start\033[0m"
 echo -e "\033[37m                  web ui访问地址： http://${machine_ip}:${flexgw_port}/\033[0m"
 echo -e "\033[37m                  账号密码：root/服务器root用户的密码\033[0m"

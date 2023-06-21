@@ -109,7 +109,7 @@ class VpnConfig(object):
 class VpnServer(object):
     """vpn server console"""
     log_file = '/etc/openvpn/openvpn-status.log'
-    pid_file = '/var/run/openvpn/server.pid'
+    pid_file = '/var/run/openvpn-server/server.pid'
 
     def __init__(self):
         self.cmd = None

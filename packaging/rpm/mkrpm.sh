@@ -1,6 +1,5 @@
 #!/bin/bash
 
-
 #flexgw_refs="origin/master"
 package_name="flexgw"
 flexgw_version="1.2.0"
